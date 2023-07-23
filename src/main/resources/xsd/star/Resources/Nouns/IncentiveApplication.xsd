@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns="http://www.starstandard.org/STAR/5" xmlns:sqdt="http://www.starstandard.org/STAR/5/qualifieddatatypes/1.0" xmlns:sudt="http://www.starstandard.org/STAR/5/unqualifieddatatypes/1.0" xmlns:oacl="http://www.openapplications.org/oagis/9/codelists" xmlns:udt="http://www.openapplications.org/oagis/9/unqualifieddatatypes/1.1" xmlns:ccts="urn:un:unece:uncefact:documentation:1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:star="http://www.starstandard.org/STAR/5" xmlns:qdt="http://www.openapplications.org/oagis/9/qualifieddatatypes/1.1" xmlns:scl="http://www.starstandard.org/STAR/5/codelists" attributeFormDefault="unqualified" blockDefault="#all" elementFormDefault="qualified" targetNamespace="http://www.starstandard.org/STAR/5"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> This schema is made
+			available under an Eclipse Public Licenses 1.0.
+			This license may be
+			found in the STAR/License directory as well as the
+			STAR BOD
+			Guidelines.</xsd:documentation></xsd:annotation><xsd:include schemaLocation="../Components/Common/Meta.xsd"/><xsd:import namespace="http://www.starstandard.org/STAR/5/qualifieddatatypes/1.0" schemaLocation="../Components/Common/QualifiedDataTypes.xsd"/><xsd:import namespace="http://www.openapplications.org/oagis/9/unqualifieddatatypes/1.1" schemaLocation="../Components/OAGIS/CoreComponents/UnqualifiedDataTypes.xsd"/><xsd:import namespace="http://www.openapplications.org/oagis/9/qualifieddatatypes/1.1" schemaLocation="../Components/OAGIS/CoreComponents/QualifiedDataTypes.xsd"/><xsd:import namespace="http://www.starstandard.org/STAR/5/codelists" schemaLocation="../Components/Common/CodeLists.xsd"/><xsd:import namespace="http://www.openapplications.org/oagis/9" schemaLocation="../Components/OAGIS/Common/Components.xsd"/><xsd:element name="IncentiveApplication" type="IncentiveApplicationType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"/></xsd:annotation></xsd:element><xsd:element name="IncentiveApplicationHeader" type="IncentiveApplicationHeaderType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> This component contains the header information for the Incentive 
+				application transaction
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="IncentiveApplicationIdDetail" type="IncentiveApplicationIdDetailType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				This component contains Incentive application identification attributes
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="IncentiveApplicationDetail" type="IncentiveApplicationDetailType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				This component contains the information for the Incentive application
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="IncentiveApplicationStatusDetail" type="IncentiveApplicationStatusDetailType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				This component contains the detail information for the Incentive inquiry transaction
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="IncentiveApplicationType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				The objective of
+				the Incentive BOD is to streamline customer and dealer experience at the point
+				of vehicle sale by providing authentic vehicle incentive information and 
+				incentive validation features as well as efficient payment processing mechanism.
+         	</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="1" minOccurs="1" ref="IncentiveApplicationHeader"/><xsd:element maxOccurs="1" minOccurs="0" ref="IncentiveApplicationIdDetail"/><xsd:element maxOccurs="1" minOccurs="0" ref="IncentiveApplicationDetail"/><xsd:element maxOccurs="unbounded" minOccurs="0" ref="IncentiveApplicationStatusDetail"/><xsd:element ref="IncentiveApplicationResult" minOccurs="0" maxOccurs="1"/></xsd:sequence></xsd:complexType><xsd:complexType name="IncentiveApplicationHeaderType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Incentive Application
+				header information.</xsd:documentation></xsd:annotation><xsd:complexContent><xsd:extension base="HeaderBaseType"><xsd:sequence/></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="IncentiveApplicationIdDetailType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Incentive Applicaton Detail
+				information</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element ref="Vehicle" minOccurs="0" maxOccurs="1"/><xsd:element maxOccurs="1" minOccurs="0" name="DealID" type="udt:IdentifierType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Request/Transaction Id tracked in the submitting application
+ 					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:complexType name="IncentiveApplicationDetailType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Incentive Applicaton Detail
+				information</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="1" minOccurs="0" name="ApplicationID" type="udt:IdentifierType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Application identification 
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element maxOccurs="1" minOccurs="0" name="ActionCode" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Type of action performed
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element ref="BuyerParty" minOccurs="0" maxOccurs="1"/><xsd:element ref="IncentiveApplicationSale" minOccurs="0" maxOccurs="1"/><xsd:element name="CustomerPaymentOptionAddress" type="AddressABIEType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The address where payment will be sent if the customer chooses to be paid directly
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element ref="IncentiveApplicationTermDetail" minOccurs="0" maxOccurs="1"/><xsd:element ref="IncentiveApplicationTierDetail" minOccurs="0" maxOccurs="1"/><xsd:element name="RateOfferType" type="udt:TextType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						This field reflects the rate offer type (STANDARD or SUBVENTION)
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element ref="IncentiveApplicationIncentiveOptions" minOccurs="0" maxOccurs="1"/><xsd:element ref="ManualOptions" minOccurs="0" maxOccurs="1"/><xsd:element name="ManualBKFlag" type="udt:IndicatorType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Flag to indicate if the contract booking is done manually or in the system
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="ExceptionType" type="udt:TextType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Used when there is a contract exception (date / rate / term / tier) for an individual
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element ref="ArtifactsTriggered" minOccurs="0" maxOccurs="1"/><xsd:element name="DealerIncentivesOpted" type="udt:IndicatorType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Flag to indicate whether dealer opted for and not opted for Dealer Cash Incentives
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="SubmissionDateTime" type="udt:DateTimeType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Date on which the customer incentive application was submitted
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="IncentivesAppliedToDeal" type="udt:IndicatorType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Whether any Rebates/Incentives were applied to the Deal.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="IncentiveSignatureFlag" type="udt:IndicatorType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Indicates whether Customer has signed the Incentive acknowledgement or not.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="DealType" type="udt:TextType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Category/type of the Deal/Sale.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="SoldOrderIndicator" type="udt:IndicatorType" minOccurs="0" maxOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						An indicator that notifies if the deal was executed as a Sold Order Deal.
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:complexType name="IncentiveApplicationStatusDetailType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Incentive Applicaton Detail
+				information</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element ref="Vehicle" minOccurs="0" maxOccurs="1"/><xsd:element maxOccurs="1" minOccurs="0" name="DealID" type="udt:IdentifierType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Request/Transaction Id tracked in the submitting application
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element ref="IncentiveApplicationStatus" minOccurs="0" maxOccurs="1"/></xsd:sequence></xsd:complexType><xsd:complexType name="IncentiveApplicationDataType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Incentive Applicaton
+				information</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element ref="Vehicle" minOccurs="0" maxOccurs="1"/><xsd:element maxOccurs="1" minOccurs="0" name="IADDealID" type="udt:IdentifierType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Request/Transaction Id tracked in the submitting application
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element ref="IncentiveApplicationStatus" minOccurs="0" maxOccurs="1"/></xsd:sequence></xsd:complexType><xsd:element name="IncentiveApplicationData" type="IncentiveApplicationDataType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Incentive Application information
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="IncentiveApplicationStatusType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Incentive Applicaton
+				status</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="1" minOccurs="0" name="StatusValue" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Value of the status
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element maxOccurs="1" minOccurs="0" name="StatusReason" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Description of the reason supporting the status like 'Contract dispute'
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:element name="IncentiveApplicationStatus" type="IncentiveApplicationStatusType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Incentive Application information
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="IncentiveApplicationSaleType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Incentive Applicaton Sales
+				information</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element ref="TypeSalesCodes" minOccurs="0" maxOccurs="1"/><xsd:element maxOccurs="1" minOccurs="0" name="SalesType" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Type of sale executed
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element maxOccurs="1" minOccurs="0" name="RetailDate" type="udt:DateType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Date on which the vehicle is retailed to the customer
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element maxOccurs="1" minOccurs="0" name="IncentiveEligibilityDate" type="udt:DateType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Date on which a sold order vehicle is ordered – used to process incentives for sold orders
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:element name="IncentiveApplicationSale" type="IncentiveApplicationSaleType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Incentive Application Sale component
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="IncentiveApplicationTermDetailType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Incentive Applicaton Term Detail
+				information</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="1" minOccurs="0" name="Term" type="qdt:NonNegativeIntegerNumericType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Term
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:element name="IncentiveApplicationTermDetail" type="IncentiveApplicationTermDetailType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Incentive Applicaton Term Detail information
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="IncentiveApplicationTierDetailType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Incentive Applicaton Tier Detail
+				information</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="1" minOccurs="0" name="Tier" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Tier
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:element name="IncentiveApplicationTierDetail" type="IncentiveApplicationTierDetailType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Incentive Applicaton Tier Detail information
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="IncentiveApplicationIncentiveOptionsType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				Incentive options
+			</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element ref="IncentiveApplicationOptionDetail" minOccurs="0" maxOccurs="unbounded"/></xsd:sequence></xsd:complexType><xsd:element name="IncentiveApplicationIncentiveOptions" type="IncentiveApplicationIncentiveOptionsType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Incentive Optons
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="IncentiveApplicationOptionDetailType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				Option detail
+			</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="1" minOccurs="0" name="OptionDetailID" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						A list of all IDs that corresponds to the option detail IDs for the  customer incentives 
+						applied on sale of this VIN. This will be blank or zero when no incentives are applied
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element maxOccurs="1" minOccurs="0" name="SourceID" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						To filter the incentive offerings based on the finance source
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element maxOccurs="unbounded" minOccurs="0" name="CustomerPaymentOption" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Identifier value to see if the payment will be made to Customer or Dealer.
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:element name="IncentiveApplicationOptionDetail" type="IncentiveApplicationOptionDetailType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Option Detail
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="ArtifactsTriggeredType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				Identifies what artifacts will be coming with the deal. (RDR, CONTRACT, IA).
+			</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="unbounded" minOccurs="1" name="ArtifactName" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The name of the artifact coming with the deal.
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:element name="ArtifactsTriggered" type="ArtifactsTriggeredType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Identifies what artifacts will be coming with the deal. (RDR, CONTRACT, IA).
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="ManualOptionsType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				Manual Options
+			</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="1" minOccurs="0" name="ServiceDownFlag" type="udt:IndicatorType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						An indictor to capture if the incentive inquiry webservice was down when the deal was completed from Deal Finalization Portal.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element maxOccurs="1" minOccurs="0" name="TotalRebateDifferenceAmount" type="udt:AmountType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The difference in amount between the ‘Total cash rebates available’ Vs the ‘total cash rebates applied’ to the deal.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element maxOccurs="1" minOccurs="0" name="PaymentDifferenceIndicator" type="udt:TextType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						An element that indicates if the cash rebates applied to deal was more than the actual cash rebates available. 
+						UNDERPAY means cash rebates applied to deal was less than the actual cash rebates available.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element maxOccurs="1" minOccurs="0" name="TotalCashIncentiveAmount" type="udt:AmountType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Total cash incentives applied to the Deal.
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:element name="ManualOptions" type="ManualOptionsType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Manual Options. 
+			</xsd:documentation></xsd:annotation></xsd:element></xsd:schema>

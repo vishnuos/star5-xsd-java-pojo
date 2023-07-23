@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns="http://www.starstandard.org/STAR/5" xmlns:sqdt="http://www.starstandard.org/STAR/5/qualifieddatatypes/1.0" xmlns:sudt="http://www.starstandard.org/STAR/5/unqualifieddatatypes/1.0" xmlns:oacl="http://www.openapplications.org/oagis/9/codelists" xmlns:udt="http://www.openapplications.org/oagis/9/unqualifieddatatypes/1.1" xmlns:ccts="urn:un:unece:uncefact:documentation:1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:star="http://www.starstandard.org/STAR/5" xmlns:qdt="http://www.openapplications.org/oagis/9/qualifieddatatypes/1.1" xmlns:scl="http://www.starstandard.org/STAR/5/codelists" attributeFormDefault="unqualified" blockDefault="#all" elementFormDefault="qualified" targetNamespace="http://www.starstandard.org/STAR/5"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> This schema is made
+			available under an Eclipse Public Licenses 1.0.
+			This license may be
+			found in the STAR/License directory as well as the
+			STAR BOD
+			Guidelines.</xsd:documentation></xsd:annotation><xsd:include schemaLocation="../Components/Common/Meta.xsd"/><xsd:import namespace="http://www.starstandard.org/STAR/5/qualifieddatatypes/1.0" schemaLocation="../Components/Common/QualifiedDataTypes.xsd"/><xsd:import namespace="http://www.openapplications.org/oagis/9/unqualifieddatatypes/1.1" schemaLocation="../Components/OAGIS/CoreComponents/UnqualifiedDataTypes.xsd"/><xsd:import namespace="http://www.openapplications.org/oagis/9/qualifieddatatypes/1.1" schemaLocation="../Components/OAGIS/CoreComponents/QualifiedDataTypes.xsd"/><xsd:import namespace="http://www.starstandard.org/STAR/5/codelists" schemaLocation="../Components/Common/CodeLists.xsd"/><xsd:import namespace="http://www.openapplications.org/oagis/9" schemaLocation="../Components/OAGIS/Common/Components.xsd"/><xsd:element name="PartsDisposition" type="PartsDispositionType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"/></xsd:annotation></xsd:element><xsd:element name="PartsDispositionHeader" type="PartsDispositionHeaderType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> Parts Disposition
+				Header</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="PartsDispositionDetail" type="PartsDispositionLineType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">Detail Line
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="PartsDispositionType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				Deliver parts data information from OEM to DMS systems such as reorder points, parts data,
+				and parts order information. This information is used by DMS to create orders that were ordered Automatically by 
+				replenishment systems, so that Open Order quantities are available to be received at the dealership.
+         </xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="1" minOccurs="1" ref="PartsDispositionHeader"/><xsd:element maxOccurs="unbounded" minOccurs="1" ref="PartsDispositionDetail"/></xsd:sequence></xsd:complexType><xsd:complexType name="PartsDispositionHeaderType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Parts Disposition
+				header information.</xsd:documentation></xsd:annotation><xsd:complexContent><xsd:extension base="HeaderBaseType"><xsd:sequence><xsd:element name="PartsActivityFileDate" type="udt:DateType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+								Activity transaction date.
+							</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="PartsActivityFileType" type="udt:CodeType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+								Activity transaction type.
+							</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="FileSequenceNumber" type="udt:NumericType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+								Sequence for sent files. The first file is 1.
+							</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="PDHOrderTypeCode" type="sqdt:OrderTypeCodeType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+								Part Order Type entered or selected at dealership. Stock-STK, Vehicle Off Road-VOR, Daily-DPO, Emergency-EMG, 
+								Supplemental-SUP, Promotional-PRO, Solicited-SOL, Vehicle Off Road Parts Inquiry-VPI, Weekly-WKL, Interim-INT, 
+								Export-EXP, Dropship Stock-DSS, Dropship Vehicle Off Road-DVR, Lock and Key-LAK, Will Call-WCL, Return Request w/ Reference-RRR, 
+								Return Request w/o Reference-RWR, Credit Request w/ Reference-CRR, Credit Request w/o Reference-CWR, Debit Request w/ Reference-DRR, 
+								Debit Request w/o Reference-DWR, Rush-RUS, Urgent-URG, Other-OTH, N/A-N/A, Hold-HLD, Dating-DTG
+							</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="PDHPartOrderNumber" type="udt:TextType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+								Number for parts order assigned by dealer/DMS/OEM.
+							</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="PartsDispositionLineType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				Parts Disposition Line Type
+		    </xsd:documentation></xsd:annotation><xsd:sequence><xsd:element ref="PartsProductItem" minOccurs="0" maxOccurs="1"/><xsd:element name="QuantityReOrderPoint" type="sqdt:QuantityType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">Quantity that triggers
+						dealer's reordering of part.</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="QuantityUserMax" type="sqdt:QuantityType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">User-defined maximum
+						stocking quantity for a part to be held in inventory.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="ReplenishmentChangeIndicator" type="udt:IndicatorType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+					        Indicates that the state of replenishment has changed.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="CurrentReplenishmentFlag" type="udt:IdentifierType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Flag which indicates participation in Automatic Replenishment Actual State.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="OldReplenishmentFlag" type="udt:IdentifierType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Flag which indicates participation in Automatic Replenishment State before Change.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="ExclusionReason" type="udt:TextType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Reason why part is excluded from replenishment,
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="AssortmentClassification" type="udt:CodeType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Classification used to analyze dealer stocks.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="SubcategoryCodeFromAssortment" type="udt:CodeType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Subcategory code from Assortment Classification, depending on Sales History of the Part.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element ref="PartsForecasting" minOccurs="0" maxOccurs="1"/><xsd:element name="PDOrderTypeCode" type="sqdt:OrderTypeCodeType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Part Order Type entered or selected at dealership. Stock-STK, Vehicle Off Road-VOR, Daily-DPO, Emergency-EMG, 
+						Supplemental-SUP, Promotional-PRO, Solicited-SOL, Vehicle Off Road Parts Inquiry-VPI, Weekly-WKL, Interim-INT, 
+						Export-EXP, Dropship Stock-DSS, Dropship Vehicle Off Road-DVR, Lock and Key-LAK, Will Call-WCL, Return Request w/ Reference-RRR, 
+						Return Request w/o Reference-RWR, Credit Request w/ Reference-CRR, Credit Request w/o Reference-CWR, Debit Request w/ Reference-DRR, 
+						Debit Request w/o Reference-DWR, Rush-RUS, Urgent-URG, Other-OTH, N/A-N/A, Hold-HLD, Dating-DTG
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="PDPartOrderNumber" type="udt:TextType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Number for parts order assigned by dealer/DMS/OEM.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="PartOrderLineItemComments" type="udt:TextType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Free form text for dealer per line item of part order for comments or additional part information.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="OrderPartQuantity" type="sqdt:QuantityType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						Quantity of part ordered - A calculated value, based upon pack multipliers.
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType></xsd:schema>

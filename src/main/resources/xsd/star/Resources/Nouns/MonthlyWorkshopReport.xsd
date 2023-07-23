@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns="http://www.starstandard.org/STAR/5" xmlns:sqdt="http://www.starstandard.org/STAR/5/qualifieddatatypes/1.0" xmlns:sudt="http://www.starstandard.org/STAR/5/unqualifieddatatypes/1.0" xmlns:oacl="http://www.openapplications.org/oagis/9/codelists" xmlns:udt="http://www.openapplications.org/oagis/9/unqualifieddatatypes/1.1" xmlns:ccts="urn:un:unece:uncefact:documentation:1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:star="http://www.starstandard.org/STAR/5" xmlns:qdt="http://www.openapplications.org/oagis/9/qualifieddatatypes/1.1" xmlns:scl="http://www.starstandard.org/STAR/5/codelists" attributeFormDefault="unqualified" blockDefault="#all" elementFormDefault="qualified" targetNamespace="http://www.starstandard.org/STAR/5"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> This schema is made
+			available under an Eclipse Public Licenses 1.0.
+			This license may be
+			found in the STAR/License directory as well as the
+			STAR BOD
+			Guidelines.</xsd:documentation></xsd:annotation><xsd:include schemaLocation="../Components/Common/Meta.xsd"/><xsd:import namespace="http://www.starstandard.org/STAR/5/qualifieddatatypes/1.0" schemaLocation="../Components/Common/QualifiedDataTypes.xsd"/><xsd:import namespace="http://www.openapplications.org/oagis/9/unqualifieddatatypes/1.1" schemaLocation="../Components/OAGIS/CoreComponents/UnqualifiedDataTypes.xsd"/><xsd:import namespace="http://www.openapplications.org/oagis/9/qualifieddatatypes/1.1" schemaLocation="../Components/OAGIS/CoreComponents/QualifiedDataTypes.xsd"/><xsd:import namespace="http://www.starstandard.org/STAR/5/codelists" schemaLocation="../Components/Common/CodeLists.xsd"/><xsd:import namespace="http://www.openapplications.org/oagis/9" schemaLocation="../Components/OAGIS/Common/Components.xsd"/><xsd:element name="MonthlyWorkshopReport" type="MonthlyWorkshopReportType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"/></xsd:annotation></xsd:element><xsd:element name="MonthlyWorkshopReportHeader" type="MonthlyWorkshopReportHeaderType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5"> Monthly Workshop
+				Header</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="MonthlyWorkshopReportLaborLine" type="MonthlyWorkshopReportLaborLineType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">Detail Line
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="MonthlyWorkshopReportResourceLine" type="MonthlyWorkshopReportResourceLineType"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">Detail Line
+			</xsd:documentation></xsd:annotation></xsd:element><xsd:complexType name="MonthlyWorkshopReportType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5"> 
+				The MWR data received from DMS is used to create Monthly Workshop Report (part of Aftersales Composite Report). 
+				The Monthly Workshop Report (MWR) is an instrument of analysis, planning and follow-up which has been developed for dealers, 
+				field representatives and OEM personnel to an alyze individual workshop data, interpret this data and determine
+				what measures should be implemented to improve overall parts and service business.
+         </xsd:documentation></xsd:annotation><xsd:sequence><xsd:element maxOccurs="1" minOccurs="1" ref="MonthlyWorkshopReportHeader"/><xsd:element maxOccurs="1" minOccurs="1" ref="MonthlyWorkshopReportLaborLine"/><xsd:element maxOccurs="1" minOccurs="1" ref="MonthlyWorkshopReportResourceLine"/></xsd:sequence></xsd:complexType><xsd:complexType name="MonthlyWorkshopReportHeaderType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">Monthly Workshop Report
+				header information.</xsd:documentation></xsd:annotation><xsd:complexContent><xsd:extension base="HeaderBaseType"><xsd:sequence><xsd:element name="StatementPeriod" type="udt:TextType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+								Reporting period (year and month).
+							</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="BrandCode" type="udt:CodeType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+								Brand code.  Indicates the brand name of the report e.g., BMW, MINI, etc,
+							</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="MonthlyWorkshopReportLaborLineType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				Monthly Workshop Labor Line Type
+		    </xsd:documentation></xsd:annotation><xsd:sequence><xsd:element name="RetailLaborHours" type="udt:NumericType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The total of retail labor hours produced for the reporting period.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="WarrantyLaborHours" type="udt:NumericType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The total of warranty labor hours produced for the reporting period.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="InternalLaborHours" type="udt:NumericType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The total of internal labor hours produced for the reporting period.
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType><xsd:complexType name="MonthlyWorkshopReportResourceLineType"><xsd:annotation xmlns="http://www.starstandards.org/STAR"><xsd:documentation source="http://www.starstandard.org/STAR/5">
+				Monthly Workshop Resource Line Type
+			</xsd:documentation></xsd:annotation><xsd:sequence><xsd:element name="TotalActiveVehicleVisits" type="udt:NumericType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The total number of active vehicle (client) visits for the reporting period.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="TotalTransientVehicleVisits" type="udt:NumericType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The total number of transient vehicle (client) visits for the reporting period.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="TotalRepeatedVehicleVisits" type="udt:NumericType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The total number of vehicles that returned to the workshop for any reason within 2 months of a prior visit.  
+						Includes repeat visits for comebacks, ordered parts and for new problems unrelated to the prior visit.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="TotalInternalTransactions" type="udt:NumericType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The total number of internal transactions for the reporting period.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="TotalActiveClientOnFile" type="udt:NumericType" minOccurs="1"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The total number of active client on file
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="TotalSPGUtilization" type="udt:NumericType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The Total SPG percentage of utilization.
+					</xsd:documentation></xsd:annotation></xsd:element><xsd:element name="TotalSPGUsage" type="udt:NumericType" minOccurs="0"><xsd:annotation><xsd:documentation source="http://www.starstandard.org/STAR/5">
+						The Total SPG percentage of usage.
+					</xsd:documentation></xsd:annotation></xsd:element></xsd:sequence></xsd:complexType></xsd:schema>
