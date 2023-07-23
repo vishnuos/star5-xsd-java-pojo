@@ -1,0 +1,1 @@
+# star5-xsd-java-pojo
